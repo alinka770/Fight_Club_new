@@ -20,7 +20,6 @@ namespace FightClub_v2._1
             InputName nameInput = new InputName();
             PlayerForm user = new PlayerForm();
             PlayerForm comp = new PlayerForm();
-            Lose1 lose = new Lose1();
             Log log = new Log();
            
             // Model
@@ -28,7 +27,7 @@ namespace FightClub_v2._1
            Player player = new Player("player");
         
             // Presenter
-            Game new_gme = new Game(player, computer, nameInput, log, user, comp, lose);
+            Game new_gme = new Game(player, computer, nameInput, log, user, comp);
 
             Application.Run(nameInput);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FightClub_v2._1
 {
@@ -14,7 +15,6 @@ namespace FightClub_v2._1
         public PlayerForm compform = new PlayerForm();
         public InputName input = new InputName();
         public Log log = new Log();
-        public Lose1 lose = new Lose1();
 
         void Round(Player player, Player defender, BodyParts part)
         {
@@ -25,15 +25,16 @@ namespace FightClub_v2._1
                 defender.SetBlock(comp);
                 defender.GetHit(part);
                 compform.progressBar1.Value = defender.HP;
+                
+
                 playerform.atack.Text = "нападает";
                 compform.atack.Text = "защищается";
             }
             else
             {
-                defender.SetBlock(comp);
-                defender.GetHit(part);
+                defender.SetBlock(part);
+                defender.GetHit(comp);
                 playerform.progressBar1.Value = defender.HP;
-               
                 playerform.atack.Text = "защищается";
                 compform.atack.Text = "нападает";
             }
@@ -67,14 +68,13 @@ namespace FightClub_v2._1
         {
             if (args.Name == "computer")
             {
-                log.label1.Text+= "Ты победил!";
+                log.label1.Text+= "Ты проиграл!";
             }
             else
             {
-                log.label1.Text += "Ты проиграл!";
+                log.label1.Text += "Ты победил!";
             }
-            Lose1 lose = new Lose1(args.Name);
-            lose.Show();
+            MessageBox.Show("Выиграл: " + args.Name);
 
         }
 
@@ -156,7 +156,7 @@ namespace FightClub_v2._1
 
 
         public Game(Player user_, Player comp_, InputName input_, Log log_,
-            PlayerForm playerform_, PlayerForm computer,Lose1 los)
+            PlayerForm playerform_, PlayerForm computer)
         {
 
             compform.head.Enabled = false;
@@ -171,7 +171,6 @@ namespace FightClub_v2._1
             input = input_;
             playerform = playerform_;
             compform = computer;
-            lose = los;
             input.NameIsOK += NameSubmitClick;
             playerform.AtackHeadClick += AtackHeadClick;
             playerform.AtackBodyClick += AtackBodyClick;
