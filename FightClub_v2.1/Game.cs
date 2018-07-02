@@ -32,8 +32,8 @@ namespace FightClub_v2._1
             }
             else
             {
-                defender.SetBlock(part);
-                defender.GetHit(comp);
+                defender.SetBlock(comp);
+                defender.GetHit(part);
                 playerform.progressBar1.Value = defender.HP;
                 playerform.atack.Text = "защищается";
                 compform.atack.Text = "нападает";
@@ -75,7 +75,9 @@ namespace FightClub_v2._1
                 log.label1.Text += "Ты победил!";
             }
             MessageBox.Show("Выиграл: " + args.Name);
-
+            compform.Hide();
+            playerform.Hide();
+            log.Hide();
         }
 
 
