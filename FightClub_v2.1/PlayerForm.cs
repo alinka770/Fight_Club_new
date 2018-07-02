@@ -66,5 +66,10 @@ namespace FightClub_v2._1
         {
             SetFirstPlayer?.Invoke(this, EventArgs.Empty);
         }
+
+        private void PlayerForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -126,6 +126,7 @@
             this.Controls.Add(this.progressBar1);
             this.Name = "PlayerForm";
             this.Text = "PlayerForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlayerForm_FormClosed);
             this.Load += new System.EventHandler(this.PlayerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

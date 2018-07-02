@@ -25,5 +25,10 @@ namespace FightClub_v2._1
             this.Hide();
             NameIsOK?.Invoke(this, EventArgs.Empty);
         }
+
+        private void InputName_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

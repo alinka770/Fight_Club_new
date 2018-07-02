@@ -73,6 +73,7 @@
             this.Controls.Add(this.label1);
             this.Name = "InputName";
             this.Text = "Regisration Form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InputName_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

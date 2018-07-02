@@ -54,14 +54,12 @@ namespace FightClub_v2._1
         {
             SetHpValues();
             log.label1.Text+="Удар заблокирован! ";
-            log.label1.Text += args.Name + " HP: " + args.Hp + ".";
         }
 
         private void playerWound(object sender, FightEventArgs args)
         {
             SetHpValues();
             log.label1.Text += "\nОй, похоже вас ударили. ";
-            log.label1.Text += args.Name + " HP: " + args.Hp + ".";
         }
 
         private void Death(object sender, FightEventArgs args)
@@ -78,6 +76,7 @@ namespace FightClub_v2._1
             compform.Hide();
             playerform.Hide();
             log.Hide();
+            Application.Exit();
         }
 
 
@@ -104,6 +103,9 @@ namespace FightClub_v2._1
 
         private void SetFirstPlayer(object sender, EventArgs e)
         {
+            user.Block += playerBlock;
+            user.Wound += playerWound;
+            user.Death += Death;
             log.label1.Text+="Надери ему задницу, сынок!";
             comp.Death += Death;
             user.Death += Death;
